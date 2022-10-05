@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff&family=Gloria+Hallelujah&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Permanent+Marker&family=Risque&family=Roboto:wght@300;400;500;700;900&family=Source+Sans+Pro:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.homepage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #131313;
+}
+.homepage-content-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 50px;
+  width: 800px;
+  height: 550px;
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  color: black;
+  transform: translate(-50%, -50%);
+}
+h2 {
+  margin-top: -20px;
+}
+h3 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+b {
+  display: block;
+  margin-top: 10px;
+  line-height: 2.5;
+  text-align: center;
+}
+h2,
+h3,
+b,
+.level-message {
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+.game-title {
+  font-size: 100px;
+  letter-spacing: -7px;
+  font-family: "Risque", sans-serif;
+  color: black;
+  margin: 0;
+  text-transform: uppercase;
+  top: 2px;
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+.game-title:before,
+.game-title:after {
+  content: attr(title);
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+.game-title:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+@keyframes glitchTop {
+  2%,
+  64% {
+    transform: translate(2px, -2px);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+.game-title:after {
+  animation: glitchBottom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+@keyframes glitchBottom {
+  2%,
+  64% {
+    transform: translate(-2px, 0);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0);
+  }
+  62% {
+    transform: translate(-22px, 5px) skew(21deg);
+  }
+}
+.description-box {
+  display: flex;
+  float: left;
+  margin-top: 5px;
+  margin-left: 208px;
+  text-transform: uppercase;
+}
+.button {
+  display: inline-block;
+  background-color: #202231;
+  text-decoration: none;
+  margin-top: 232px;
+  margin-left: -488px;
+  width: 160px;
+  height: 48px;
+  border: 3px;
+  border-radius: 10px;
+}
+.button:hover {
+  animation: pulsate 1s ease-in-out;
+}
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 25px #880808, 0 0 50px #880808;
+  }
+}
+
+#button-text {
+  display: inline-block;
+  color: #fff;
+  letter-spacing: 8px;
+  line-height: 50px;
+  text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+/* GAME */
+.game-level {
+  font-size: 3rem;
+  padding-top: 2rem;
+}
+.level-message {
+  font-size: 1.5rem;
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  background: #fffafa;
+}
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #fffafa;
+}
+.level-two {
+  display: none;
+}
+
+/* Game Button */
+.next-level-button {
+  background: #202231;
+  color: #fff;
+  padding: 1rem 3rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.scary-photo {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
